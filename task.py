@@ -52,7 +52,9 @@ def conv_num(num_str):
 
 
 def my_datetime(num_sec):
-    """ Function finds the date by the seconds that have passed since 1-1-1970. """
+    """ Function finds the date by the seconds that have passed
+     since 1-1-1970.
+     """
     one_day = 86400
     month = 1
     year = 1970
@@ -74,7 +76,9 @@ def my_datetime(num_sec):
 
 
 def calculate_year(passed_days, year):
-    """ Helper function finds the years that have passed and returns the found year and leftover days"""
+    """ Helper function finds the years that have passed and returns
+    the found year and leftover days.
+    """
     while passed_days > 366:
         if year % 4 != 0:
             passed_days = passed_days - 365
@@ -90,7 +94,9 @@ def calculate_year(passed_days, year):
 
 
 def calculate_month(passed_days, year, month):
-    """ Helper function uses passed days to find the month and day of the date """
+    """ Helper function uses passed days to find the
+    month and day of the date.
+     """
     months_with_31_days = [1, 3, 5, 7, 8, 10, 12]
     months_with_30_days = [4, 6, 9, 11]
     february = [2]
