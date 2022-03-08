@@ -8,15 +8,13 @@ def conv_num(num_str):
                  "C": 12, "c": 12, "D": 13, "d": 13, "E": 14, "e": 14,
                  "F": 15, "f": 15}
     decimal_count = 0
-    hexadecimal = False
     negative = False
     ret = 0
-    mult = 10
-    # Hexadecimal found, change mult to 16 and remove leading 2 characters
-    if len(num_str) >= 2 and (num_str[0:2] == "0x" or num_str[0:2] == "0X"):
-        num_str = num_str[2:]
-        hexadecimal = True
-        mult = 16
+
+    num_str, hexadecimal = check_if_hex(num_str)
+
+    mult = 10 if not hexadecimal else 16
+
     # Empty string. Placed after hex check to catch empty hex strings
     if len(num_str) == 0:
         return None
@@ -49,6 +47,18 @@ def conv_num(num_str):
         ret *= -1
 
     return ret
+
+
+def check_if_hex(num_str):
+    """"""
+    hexadecimal = False
+
+    # Hexadecimal found, change mult to 16 and remove leading 2 characters
+    if len(num_str) >= 2 and (num_str[0:2] == "0x" or num_str[0:2] == "0X"):
+        num_str = num_str[2:]
+        hexadecimal = True
+
+    return num_str, hexadecimal
 
 
 def my_datetime(num_sec):
